@@ -5,9 +5,9 @@ export default {
 </script>
 
 <template>
-    <header>
+    <footer>
         <h2>Footer</h2>
-    </header>
+    </footer>
 </template>
 
 <style scoped>
