@@ -6,9 +6,12 @@ export default {
 
 <template>
     <footer>
-        <h2>Footer</h2>
+        <h2 class="p-3 text-light">Footer</h2>
     </footer>
 </template>
 
 <style scoped>
+footer{
+    background-color:  #2C3639;
+}
 </style>
