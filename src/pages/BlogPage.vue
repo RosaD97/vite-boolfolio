@@ -9,6 +9,8 @@ export default {
     },
     data() {
         return {
+            projectsPage: 6,
+            currentProjectsPage: 6,
             apiBaseUrl: 'http://127.0.0.1:8000/api',
             apiUrl: {
                 projects: '/projects'
@@ -25,6 +27,12 @@ export default {
                 .catch((error) => { console.log(error) })
         }
     },
+    computed: {
+        showProjects(){
+            return this.projects.filter((element, index)=> index < this.currentProjectsPage);
+
+        }
+    },
     created() {
         this.getProjects();
     }
@@ -36,10 +44,11 @@ export default {
         <h2 class="text-light m-3">Projects</h2>
         <div>
             <div class="row gy-4">
-                <div class="col col-md-4 d-grid" v-for="project in projects">
+                <div class="col col-md-4 d-grid" v-for="project in showProjects">
                     <CardProject :project="project"></CardProject>
                 </div>
             </div>
+            <div class="text-center my-3"><button @click.prevent="currentProjectsPage += projectsPage" class="btn btn-primary">Carica altri</button></div>
         </div>
     </section>
 </template>

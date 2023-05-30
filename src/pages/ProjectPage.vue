@@ -8,7 +8,7 @@ export default {
             apiUrl: {
                 projects: '/project'
             },
-            project: null,
+            project: '',
             isError: false,
             errorMessage: null
         }
@@ -21,8 +21,14 @@ export default {
                     this.project = response.data.results;
                 }).catch((error) => {
                     console.log(error);
+
+                    if (error.response.status === 404) {
+                        console.log('redirect')
+                        this.$router.push({ name: 'not-found' });
+                    }
+
                     this.isError = true,
-                    this.errorMessage = error.message;
+                        this.errorMessage = error.message;
                 })
         }
     },
@@ -33,18 +39,21 @@ export default {
 </script>
 
 <template>
-    <div>
-        <h2>{{ project.title }}</h2>
-        <p>{{ project.text }}</p>
-        <div class="mt-3"> Technologies:
-                    <div v-for="technology in project.technologies">
-                        <span>{{ technology.name }}</span>
-                    </div>
+    <section class="container my-3 text-light">
+        <div>
+            <h2 class="my-3">{{ project.title }}</h2>
+            <p>{{ project.text }}</p>
+            <hr>
+            <div class="mt-3 d-flex"> Technologies:
+                <div v-for="technology in project.technologies">
+                    <span class="mx-3">{{ technology.name }}</span>
                 </div>
-    </div>
-    <div v-if="isError">
-        <div>{{ errorMessage }}</div>
-    </div>
+            </div>
+        </div>
+        <div v-if="isError">
+            <div>{{ errorMessage }}</div>
+        </div>
+    </section>
 </template>
 
 <style scoped></style>

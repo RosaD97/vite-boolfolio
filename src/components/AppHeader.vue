@@ -1,6 +1,8 @@
 <script>
+import TypeList from './TypeList.vue';
 export default {
-    name: 'AppHeader'
+    name: 'AppHeader',
+    components: {TypeList}
 }
 </script>
 
@@ -18,6 +20,12 @@ export default {
                     </li>
                     <li>
                         <router-link :to="{ name: 'blog' }" class="text-light text-decoration-none btn">blog</router-link>
+                    </li>
+                    <li>
+                        <router-link :to="{ name: 'type' }" class="text-light text-decoration-none btn">Types</router-link>
+                    </li>
+                    <li>
+                        <TypeList></TypeList>
                     </li>
                 </ul>
             </div>
