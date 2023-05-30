@@ -18,7 +18,7 @@ export default {
             axios.get(this.apiBaseUrl + this.apiUrl.projects + "/" + this.$route.params.slug)
                 .then((response) => {
                     console.log(response);
-                    this.project = response.data.results;
+                  this.project = response.data.results;
                 }).catch((error) => {
                     console.log(error);
 

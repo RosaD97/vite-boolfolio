@@ -7,15 +7,14 @@ export default {
     data() {
         return {
             store,
-            types: [],
-            currentTypes: ''
+            types: []
         }
     },
     methods: {
         getTypes() {
-            axios.get(this.store.apiBaseUrl + this.store.apiUrls.types)
+            axios.get(this.store.apiBaseUrl+this.store.apiUrls.types)
                 .then((response) => {
-                    console.log(response);
+                console.log(response);
                     this.types = response.data.results;
                 })
                 .catch((error) => { console.log(error) })
@@ -29,11 +28,14 @@ export default {
 
 <template>
     <div class="container my-4">
-        <h2>Lista Tecnologie</h2>
-        <ul class="list-unstyled">
-            <li v-for="item in types">{{ item.name }}</li>
-            <router-link :to="{ name: 'project-types', params: { slug: project.slug } }">Vai al Project</router-link>
-        </ul>
+        <h2>Type page: </h2>
+        <div>
+            <ul>
+                <li  v-for="item in types">
+                    <router-link :to="{name :'type-projects', params:{slug: item.slug}}">{{ item.name }}</router-link>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 

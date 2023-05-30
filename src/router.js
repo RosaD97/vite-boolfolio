@@ -5,6 +5,7 @@ import AboutPage from './pages/AboutPage.vue';
 import BlogPage from './pages/BlogPage.vue';
 import ProjectPage from './pages/ProjectPage.vue';
 import TypePage from './pages/TypePage.vue';
+import TypeProjects from './pages/TypeProjects.vue';
 import NotFoundPage from './pages/NotFoundPage.vue';
 
 
@@ -32,9 +33,14 @@ const router = createRouter({
             component: ProjectPage
         },
         {
-            path: '/type',
+            path: '/types',
             name: 'type',
             component: TypePage
+        },
+        {
+            path: '/types/:slug',
+            name: 'type-projects',
+            component: TypeProjects
         },
         {
             path: '/:pathMatch(.*)*',

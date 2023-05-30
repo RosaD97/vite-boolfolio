@@ -1,8 +1,6 @@
 <script>
-import TypeList from './TypeList.vue';
 export default {
-    name: 'AppHeader',
-    components: {TypeList}
+    name: 'AppHeader'
 }
 </script>
 
@@ -24,9 +22,6 @@ export default {
                     <li>
                         <router-link :to="{ name: 'type' }" class="text-light text-decoration-none btn">Types</router-link>
                     </li>
-                    <li>
-                        <TypeList></TypeList>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -34,13 +29,14 @@ export default {
 </template>
 
 <style scoped>
-header{
-    background-color:  #2C3639;
+header {
+    background-color: #2C3639;
 }
-h2{
-    text-shadow: 10px 10px 5px rgba(0,0,0,0.54);
+
+h2 {
+    text-shadow: 10px 10px 5px rgba(0, 0, 0, 0.54);
 }
+
 li:hover {
-    text-shadow: -4px 4px 6px rgba(0,0,0,1);
-    }
-</style>
+    text-shadow: -4px 4px 6px rgba(0, 0, 0, 1);
+}</style>
